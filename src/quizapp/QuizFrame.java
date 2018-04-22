@@ -14,17 +14,39 @@ import javax.swing.JOptionPane;
  *
  * @author KairaMGotze
  */
-public class NewJFrame extends javax.swing.JFrame implements ActionListener {
+public class QuizFrame extends javax.swing.JFrame implements ActionListener {
        public static   String[][] questions = new String[5][5];
        public static int[] answers = new int[5];
       
        public static int page = 0 ;
        public static int result  = 0;
-       
+       boolean[] srabotalo = new boolean[5];
+boolean[] correct = new boolean[5];
+
 
     /**
      * Creates new form NewJFrame
      */
+              public void setBools()
+       {
+           srabotalo[0] = false;
+           srabotalo[1] = false;
+           srabotalo[2] = false;
+           srabotalo[3] = false;
+           srabotalo[4] = false;
+
+
+       }
+         public void setCorrects()
+       {
+           correct[0] = false;
+           correct[1] = false;
+           correct[2] = false;
+           correct[3] = false;
+           correct[4] = false;
+
+
+       }
        public void getAnswers()
        {
            answers[0] = 2;
@@ -68,7 +90,7 @@ public class NewJFrame extends javax.swing.JFrame implements ActionListener {
           questions[4][4] = "Less reliable and expensive";
 
        }
-    public NewJFrame() {//additional new commands
+    public QuizFrame() {//additional new commands
         initComponents();
                 group.add(jRadioButton1);
                 group.add(jRadioButton2);
@@ -79,10 +101,12 @@ public class NewJFrame extends javax.swing.JFrame implements ActionListener {
                 jRadioButton3.addActionListener(this);
                 jRadioButton4.addActionListener(this);
                 jButton1.addActionListener(this);
-                              jButton3.addActionListener(this);
 
 FullArray();
+getAnswers();
 setThisText(page);
+setBools();
+setCorrects();
     }
     public  void setThisText(int i)
     {
@@ -115,7 +139,6 @@ setThisText(page);
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -138,13 +161,6 @@ setThisText(page);
 
         jButton1.setText("Next");
 
-        jButton3.setText("Previous");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,23 +168,17 @@ setThisText(page);
             .addGroup(layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
-                                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(74, 74, 74))))
+                    .addComponent(jTextField1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                            .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +197,7 @@ setThisText(page);
                         .addGap(19, 19, 19)
                         .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                .addComponent(jButton1)
                 .addGap(59, 59, 59))
         );
 
@@ -206,10 +214,6 @@ setThisText(page);
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,20 +233,21 @@ setThisText(page);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() { 
-                new NewJFrame().setVisible(true);
+                new QuizFrame().setVisible(true);
             }
         });
 
@@ -254,7 +259,6 @@ setThisText(page);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private static javax.swing.JRadioButton jRadioButton1;
     private static javax.swing.JRadioButton jRadioButton2;
     private static javax.swing.JRadioButton jRadioButton3;
@@ -265,28 +269,86 @@ setThisText(page);
 
     @Override
     public void actionPerformed(ActionEvent a) {
-
 if(a.getSource()==jButton1)
 {
         if(page>=4)
     {
+         if(correct[page]==true) 
+        {result++;
+        JOptionPane.showMessageDialog(null, "huy");
+        }
 Result result = new Result();
 result.show();
         return;
     }
+        if(correct[page]==true) 
+        {result++;
+        JOptionPane.showMessageDialog(null, "huy");
+        }
 page++;
 setThisText(page);
 
 }
-if(a.getSource()==jButton3)
+
+if(a.getSource()==jRadioButton1)
 {
-    if(page<=0)
+    if(srabotalo[page] == false)
     {
-        JOptionPane.showMessageDialog(null, "You cannot go previous page, go next");
-        return;
+    if(answers[page]==1) 
+    { srabotalo[page] = true;
+        correct[page]=true;
     }
-page--;
-setThisText(page);
+    else 
+    {
+               correct[page]=false; 
+    }
+    }
+}
+if(a.getSource()==jRadioButton2)
+{
+ if(srabotalo[page] == false)
+    {
+    if(answers[page]==2) 
+    { srabotalo[page] = true;
+        correct[page]=true;
+    }
+    else 
+    {
+               correct[page]=false; 
+    }
+    }
+
+}
+if(a.getSource()==jRadioButton3)
+{
+ if(srabotalo[page] == false)
+    {
+    if(answers[page]==3) 
+    { srabotalo[page] = true;
+        correct[page]=true;
+    }
+    else 
+    {
+               correct[page]=false; 
+    }
+    }
+
+}
+
+if(a.getSource()==jRadioButton4)
+{
+ if(srabotalo[page] == false)
+    {
+    if(answers[page]==4) 
+    { srabotalo[page] = true;
+        correct[page]=true;
+    }
+    else 
+    {
+               correct[page]=false; 
+    }
+    }
+
 }
 
     }

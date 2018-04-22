@@ -5,6 +5,8 @@
  */
 package quizapp;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author KairaMGotze
@@ -16,7 +18,36 @@ public class Result extends javax.swing.JFrame {
      */
     public Result() {
         initComponents();
-       int res =  NewJFrame.result;
+       int res =  QuizFrame.result;
+       jLabel1.setText("Your score is "+res+"out of 5");
+       switch(res)
+       {
+           case 1:  
+               jLabel2.setText("huy1");
+           break;
+           case 2: 
+                    
+               jLabel2.setText("huy2");
+
+           break;
+           case 3:  
+               jLabel2.setText("huy3");
+
+           break;
+           case 4:  
+               jLabel2.setText("huy4");
+
+           break;
+           case 5:  
+               jLabel2.setText("huy5");
+
+           break;
+           default :
+               jLabel2.setText("You failed");
+
+           break;
+       }
+       jLabel3.setText("Thanks for doing quiz");
     }
 
     /**
