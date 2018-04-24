@@ -35,7 +35,7 @@ public class QuizApp extends JFrame {
  setContentPane(content);
  setTitle("TEKWIZ QUIZ APPLICATION ");
  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-
+ setResizable(false);
     
 }
 class startListener implements ActionListener {

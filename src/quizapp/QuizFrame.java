@@ -146,6 +146,8 @@ setCorrects();
         setTitle("TEKWIZ QUIZ");
         setBackground(new java.awt.Color(255, 51, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(761, 416));
+        setResizable(false);
 
         jTextField1.setEditable(false);
         jTextField1.setText("J");
