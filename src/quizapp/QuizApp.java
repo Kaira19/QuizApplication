@@ -8,6 +8,7 @@ package quizapp;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*; 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -16,21 +17,31 @@ import javax.imageio.ImageIO;
  * @author KairaMGotze
  */
 public class QuizApp extends JFrame {
-  public QuizApp() { 
+ private Image img;
+
+    public QuizApp() throws IOException { 
+
+        
+BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\KairaMGotze\\Downloads\\test.png"));
+JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+add(picLabel);
+        
+       
+        
+        
 
  JPanel content = new JPanel();
+
  content.setLayout(new BorderLayout());
- JLabel welcome=new JLabel("Welcome, Mate!");
+ JLabel welcome=new JLabel("      Welcome, Mate! \n Press the button to start quiz!!!");
  welcome.setFont(new Font("Serif", Font.BOLD, 20));
  welcome.setForeground(Color.BLUE);
  content.add(welcome,BorderLayout.NORTH);
- JLabel pressbutton=new JLabel("Press the button to start quiz");
- pressbutton.setFont(new Font("Serif", Font.BOLD, 20));
- pressbutton.setForeground(Color.RED);
- content.add(pressbutton,BorderLayout.CENTER);
  JButton start = new JButton("Lets Start"); 
  start.setPreferredSize(new Dimension(100,50));
- content.add(start, BorderLayout.SOUTH);;
+ content.add(start, BorderLayout.SOUTH);
+  content.add(picLabel);
+
  start.addActionListener(new startListener());
  setContentPane(content);
  setTitle("TEKWIZ QUIZ APPLICATION ");
@@ -46,7 +57,7 @@ class startListener implements ActionListener {
  }}
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
       QuizApp window = new QuizApp();
  window.setSize(500,300);
  window.setVisible(true);   

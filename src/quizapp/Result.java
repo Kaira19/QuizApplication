@@ -65,16 +65,17 @@ public class Result extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Result of TEKWIZ QUIZ");
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(244, 66, 66));
         jLabel1.setText("jLabel1");
 
-        jLabel2.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 45, 247));
         jLabel2.setText("jLabel2");
 
-        jLabel3.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(12, 247, 0));
         jLabel3.setText("jLabel3");
 
@@ -85,10 +86,10 @@ public class Result extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
