@@ -19,7 +19,7 @@ public class Result extends javax.swing.JFrame {
     public Result() {
         initComponents();
        int res =  QuizFrame.result;
-       jLabel1.setText("Your score is "+res+"out of 5");
+       jLabel1.setText("Your score is "+res+" out of 5");
        switch(res)
        {
            case 1:  
@@ -27,19 +27,19 @@ public class Result extends javax.swing.JFrame {
            break;
            case 2: 
                     
-               jLabel2.setText("You ");
+               jLabel2.setText("You are not good student. Study hard ");
 
            break;
            case 3:  
-               jLabel2.setText("huy3");
+               jLabel2.setText("Your result not bad, but you could do better");
 
            break;
            case 4:  
-               jLabel2.setText("huy4");
+               jLabel2.setText("You are good student, keep doing like that");
 
            break;
            case 5:  
-               jLabel2.setText("huy5");
+               jLabel2.setText("Awesome you get maximum points");
 
            break;
            default :
@@ -64,11 +64,18 @@ public class Result extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Result of TEKWIZ QUIZ");
 
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(244, 66, 66));
         jLabel1.setText("jLabel1");
 
+        jLabel2.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 45, 247));
         jLabel2.setText("jLabel2");
 
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 3, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(12, 247, 0));
         jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,9 +86,8 @@ public class Result extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(258, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,7 +99,7 @@ public class Result extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

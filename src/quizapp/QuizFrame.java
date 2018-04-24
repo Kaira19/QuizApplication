@@ -8,6 +8,7 @@ package quizapp;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -107,6 +108,7 @@ getAnswers();
 setThisText(page);
 setBools();
 setCorrects();
+
     }
     public  void setThisText(int i)
     {
@@ -140,7 +142,9 @@ setCorrects();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("TEKWIZ QUIZ");
+        setBackground(new java.awt.Color(255, 51, 51));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jTextField1.setEditable(false);
@@ -252,6 +256,7 @@ setCorrects();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() { 
                 new QuizFrame().setVisible(true);
+            
             }
         });
 
