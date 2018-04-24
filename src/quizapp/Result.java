@@ -23,11 +23,11 @@ public class Result extends javax.swing.JFrame {
        switch(res)
        {
            case 1:  
-               jLabel2.setText("huy1");
+               jLabel2.setText("You need lots of help. You are in trouble");
            break;
            case 2: 
                     
-               jLabel2.setText("huy2");
+               jLabel2.setText("You ");
 
            break;
            case 3:  
@@ -47,7 +47,7 @@ public class Result extends javax.swing.JFrame {
 
            break;
        }
-       jLabel3.setText("Thanks for doing quiz");
+       jLabel3.setText("Thank you for taking the quiz");
     }
 
     /**
