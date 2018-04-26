@@ -54,9 +54,9 @@ boolean[] correct = new boolean[5];
        }
        public void getAnswers1()
        {
-           answers[0] = 3;
-           answers[1] = 3;
-           answers[2] = 4;
+           answers[0] = 2;
+           answers[1] = 2;
+           answers[2] = 3;
            answers[3] = 1;
            answers[4] = 3;
 
@@ -64,29 +64,29 @@ boolean[] correct = new boolean[5];
        }
        public void FullArray1()
        {
-          questions[0][0] = "1";
-          questions[0][1] = "Conf";
-          questions[0][2] = "In";
-          questions[0][3] = "Bot";
-          questions[0][4] = "Ma";
+          questions[0][0] = "What is the major advantage of using Incremental Model?";
+          questions[0][1] = "Customer can respond to each increment";
+          questions[0][2] = "Easier to test and debug";
+          questions[0][3] = "Powerful documentation";
+          questions[0][4] = "None of this";
 
-          questions[1][0] = "What is a Software ?";
-          questions[1][1] = "Software is set of programs";
-          questions[1][2] = "Software is documentation and configuration of data";
-          questions[1][3] = "Software is set of programs, documentation & configuration of data";
-          questions[1][4] = "None of the mentioned";
+          questions[1][0] = "The spiral model was originally proposed by";
+          questions[1][1] = "IBM";
+          questions[1][2] = "Barry Boehm";
+          questions[1][3] = "Pressman";
+          questions[1][4] = "Royce";
 
-          questions[2][0] = "What are attributes of good software?";
-          questions[2][1] = "Software maintainability";
-          questions[2][2] = "Software functionality";
-          questions[2][3] = "Software development";
-          questions[2][4] = "Software maintainability & functionality";
+          questions[2][0] = "What is disadvantage of Waterfall model?";
+          questions[2][1] = "Powerfull documentation";
+          questions[2][2] = "Model is simple and easy to understand and use";
+          questions[2][3] = "High amounts of risk and uncertainty";
+          questions[2][4] = "None of this";
 
-          questions[3][0] = "Which of these software engineering activities are not a part of software processes";
-          questions[3][1] = "Software dependence";
-          questions[3][2] = "Software development";
-          questions[3][3] = "Software validation";
-          questions[3][4] = "Software specification";
+          questions[3][0] = "What is disadvantage of Incremental development model?";
+          questions[3][1] = "Needs good planning and design";
+          questions[3][2] = "This model is more flexible";
+          questions[3][3] = "Lowers initial delivery cost";
+          questions[3][4] = "None of this";
 
           questions[4][0] = "Which of these does not account for software failure?";
           questions[4][1] = "Increasing Demand";

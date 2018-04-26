@@ -4,19 +4,24 @@
  * and open the template in the editor.
  */
 package quizapp;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static quizapp.QuizFrame.group;
+import static quizapp.QuizFrame.page;
+import static quizapp.QuizFrame2.answers;
+import static quizapp.QuizFrame2.group;
+import static quizapp.QuizFrame2.page;
+import static quizapp.QuizFrame2.questions;
+import static quizapp.QuizFrame2.result;
+public class QuizFrame3 extends javax.swing.JFrame implements ActionListener {
 
-/**
- *
- * @author KairaMGotze
- */
-public class QuizFrame extends javax.swing.JFrame implements ActionListener {
-       public static   String[][] questions = new String[5][5];
+    /**
+     * Creates new form QuizFrame3
+     */
+     public static   String[][] questions = new String[5][5];
        public static int[] answers = new int[5];
       
        public static int page = 0 ;
@@ -91,9 +96,9 @@ boolean[] correct = new boolean[5];
           questions[4][4] = "Less reliable and expensive";
 
        }
-    public QuizFrame() {//additional new commands
+    public QuizFrame3() {
         initComponents();
-                group.add(jRadioButton1);
+         group.add(jRadioButton1);
                 group.add(jRadioButton2);
                 group.add(jRadioButton3);
                 group.add(jRadioButton4);
@@ -125,6 +130,7 @@ setCorrects();
           jRadioButton4.setText(hey[4]);
           if(i==4) jButton1.setText("Submit");
     }
+public     static  ButtonGroup group = new ButtonGroup();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -142,12 +148,7 @@ setCorrects();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("TEKWIZ QUIZ");
-        setBackground(new java.awt.Color(255, 51, 51));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(761, 416));
-        setResizable(false);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextField1.setEditable(false);
         jTextField1.setText("J");
@@ -160,10 +161,25 @@ setCorrects();
         });
 
         jRadioButton2.setText("jRadioButton1");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jRadioButton3.setText("jRadioButton1");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jRadioButton4.setText("jRadioButton1");
+        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Next");
 
@@ -171,46 +187,45 @@ setCorrects();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
-                            .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE))
-                        .addGap(11, 11, 11)))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 691, Short.MAX_VALUE)
+                        .addGap(13, 13, 13))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                    .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(19, 19, 19)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                    .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)))
                 .addComponent(jButton1)
-                .addGap(43, 43, 43))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
-
-        jRadioButton1.getAccessibleContext().setAccessibleDescription("");
-        jRadioButton2.getAccessibleContext().setAccessibleDescription("");
-        jRadioButton3.getAccessibleContext().setAccessibleDescription("");
-        jRadioButton4.getAccessibleContext().setAccessibleDescription("");
-
-        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -219,10 +234,21 @@ setCorrects();
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
+
     /**
      * @param args the command line arguments
-     */                
-
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -237,42 +263,23 @@ setCorrects();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuizFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuizFrame3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() { 
-                new QuizFrame().setVisible(true);
-            
+            public void run() {
+                new QuizFrame3().setVisible(true);
             }
         });
-
-
-    
-    
-    
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private static javax.swing.JRadioButton jRadioButton1;
-    private static javax.swing.JRadioButton jRadioButton2;
-    private static javax.swing.JRadioButton jRadioButton3;
-    private static javax.swing.JRadioButton jRadioButton4;
-    private static javax.swing.JTextField jTextField1;
-    // End of variables declaration//GEN-END:variables
-         public     static  ButtonGroup group = new ButtonGroup();
-
-    @Override
     public void actionPerformed(ActionEvent a) {
 
 if(a.getSource()==jButton1)
@@ -300,7 +307,7 @@ setThisText(page);
 
 }
 
-if(a.getSource()==jRadioButton1)
+if(a.getSource()==jRadioButton4)
 {
     if(srabotalo[page] == false)
     {
@@ -329,7 +336,7 @@ if(a.getSource()==jRadioButton2)
     }
 
 }
-if(a.getSource()==jRadioButton3)
+if(a.getSource()==jRadioButton1)
 {
  if(srabotalo[page] == false)
     {
@@ -345,7 +352,7 @@ if(a.getSource()==jRadioButton3)
 
 }
 
-if(a.getSource()==jRadioButton4)
+if(a.getSource()==jRadioButton3)
 {
  if(srabotalo[page] == false)
     {
@@ -363,6 +370,12 @@ if(a.getSource()==jRadioButton4)
 
     }
 
-
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private static javax.swing.JRadioButton jRadioButton1;
+    private static javax.swing.JRadioButton jRadioButton2;
+    private static javax.swing.JRadioButton jRadioButton3;
+    private static javax.swing.JRadioButton jRadioButton4;
+    private static javax.swing.JTextField jTextField1;
+    // End of variables declaration//GEN-END:variables
 }

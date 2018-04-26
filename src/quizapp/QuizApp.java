@@ -45,26 +45,33 @@ public class QuizApp extends JFrame {
  content.add(master);
  beginer.addActionListener(new startListener());
  intermediate.addActionListener(new intermediateListener());
- 
+ master.addActionListener(new masterListener());
  setContentPane(content);
  setTitle("TEKWIZ QUIZ APPLICATION ");
  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
  setResizable(false);
     
 }
-    class intermediateListener implements ActionListener{
+    class startListener implements ActionListener{
          public void actionPerformed(ActionEvent e) {
   QuizFrame quizFrame = new QuizFrame();
  quizFrame.show();
  dispose();
  }
     }
-class startListener implements ActionListener {
- public void actionPerformed(ActionEvent a) {
+class intermediateListener implements ActionListener {
+ public void actionPerformed(ActionEvent e) {
   QuizFrame2 quizFrame1 = new QuizFrame2();
  quizFrame1.show();
  dispose();
  }}
+class masterListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+     QuizFrame3 quizFrame2 = new QuizFrame3();
+ quizFrame2.show();
+ dispose();   
+    }
+}
 
 
     public static void main(String[] args)  {
