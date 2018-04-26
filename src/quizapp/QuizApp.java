@@ -8,58 +8,68 @@ package quizapp;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*; 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+
 /**
  *
  * @author KairaMGotze
  */
 public class QuizApp extends JFrame {
- private Image img;
 
-    public QuizApp() throws IOException { 
 
-        
-BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\KairaMGotze\\Downloads\\test.png"));
-JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-add(picLabel);
-        
-       
-        
-        
+    public QuizApp()  { 
+
+             
 
  JPanel content = new JPanel();
 
- content.setLayout(new BorderLayout());
- JLabel welcome=new JLabel("      Welcome, Mate! \n Press the button to start quiz!!!");
+ content.setLayout(new GridLayout(0,1));
+ 
+
+ JLabel welcome=new JLabel("Welcome, Mate to quiz application");
+ JLabel question = new JLabel("It contain 5 multiple choise questions");
+ JLabel press = new JLabel("Choose level to start quiz!!!");
+ JButton beginer = new JButton("Beginer level"); 
+ JButton intermediate = new JButton("Intermediate level");
+ JButton master = new JButton("Master level");
+ press.setFont(new Font("Serif", Font.BOLD, 20));
+ press.setForeground(Color.BLUE);
+ question.setFont(new Font("Serif", Font.BOLD, 20));
+ question.setForeground(Color.BLUE);
  welcome.setFont(new Font("Serif", Font.BOLD, 20));
  welcome.setForeground(Color.BLUE);
- content.add(welcome,BorderLayout.NORTH);
- JButton start = new JButton("Lets Start"); 
- start.setPreferredSize(new Dimension(100,50));
- content.add(start, BorderLayout.SOUTH);
-  content.add(picLabel);
-
- start.addActionListener(new startListener());
+ content.add(welcome);
+ content.add(question);
+ content.add(press);
+ content.add(beginer);
+ content.add(intermediate);
+ content.add(master);
+ beginer.addActionListener(new startListener());
+ intermediate.addActionListener(new intermediateListener());
+ 
  setContentPane(content);
  setTitle("TEKWIZ QUIZ APPLICATION ");
  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
  setResizable(false);
     
 }
-class startListener implements ActionListener {
- public void actionPerformed(ActionEvent e) {
+    class intermediateListener implements ActionListener{
+         public void actionPerformed(ActionEvent e) {
   QuizFrame quizFrame = new QuizFrame();
  quizFrame.show();
+ dispose();
+ }
+    }
+class startListener implements ActionListener {
+ public void actionPerformed(ActionEvent a) {
+  QuizFrame2 quizFrame1 = new QuizFrame2();
+ quizFrame1.show();
  dispose();
  }}
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
       QuizApp window = new QuizApp();
- window.setSize(500,300);
+ window.setSize(500,500);
  window.setVisible(true);   
      
     }
